@@ -4,8 +4,7 @@ const textResult = document.querySelector('[data-text-result]');
 
 let tasks = JSON.parse(localStorage.getItem('todo')) || [];
 
-
-createBtn.addEventListener('click', () => {
+function todoBlock() {
     const taskText = textInput.value.trim();
     if (taskText) {
         const newTask = {
@@ -16,8 +15,18 @@ createBtn.addEventListener('click', () => {
         localStorage.setItem('todo', JSON.stringify(tasks));
         render();
     }
+    textInput.value = ''
+}
+
+textInput.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+        todoBlock()
+    }
 })
 
+createBtn.addEventListener('click', () => {
+    todoBlock()
+})
 
 const render = () => {
     textResult.innerHTML = ''
@@ -61,6 +70,7 @@ const render = () => {
         list.append(textCheckbox, removeBtn);
         textResult.append(list);
     })
+
 }
 
 render()
