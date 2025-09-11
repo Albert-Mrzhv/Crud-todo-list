@@ -1,0 +1,156 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(87, 87, 168);
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.container {
+    width: 500px;
+    margin: 0 20px;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #fff;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    margin-bottom: 20px;
+}
+
+.input {
+    width: 100%;
+    height: 40px;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    padding-left: 4px;
+    border-bottom: 1px solid #3f3f3f;
+    background-color: rgb(87, 87, 168);
+}
+
+.input::placeholder {
+    color: #fff;
+}
+
+.button {
+    cursor: pointer;
+    height: 30px;
+    font-size: 20px;
+    background-color: rgb(87, 87, 168);
+    border: 2px solid blue;
+    border-radius: 12px;
+    color: white;
+    transition: all 0.3s;
+}
+
+.button:hover {
+    background-color: rgb(95, 95, 185);
+}
+
+.button:active {
+    background-color: rgb(116, 116, 202);
+}
+
+
+.block-colors {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+}
+
+.btn-color {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.red {
+    background-color: red;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.green {
+    background-color: green;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.orange {
+    background-color: orange;
+}
+
+.gray {
+    background-color: grey;
+}
+
+.violet {
+    background-color: violet;
+}
+
+.block-remove {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    background-color: bisque;
+    padding: 0 10px;
+    margin-bottom: 10px;
+    border-radius: 9px;
+}
+
+.block-checkbox-result {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    margin-right: 10px;
+}
+
+.checkbox {
+    cursor: pointer;
+}
+
+input[type="checkbox"] {
+  transform: scale(1.5);
+}
+
+.result {
+    font-size: 25px;
+    word-break: break-word;
+}
+
+.btn-remove {
+    margin: 20px 0;
+    cursor: pointer;
+    background-color: bisque;
+    border: 2px solid #000;
+    height: 30px;
+    transition: all 0.3s;
+}
+
+.btn-remove:hover {
+    background-color: rgb(255, 243, 228);
+}
+
+@media (max-width: 446px) {
+    .main {
+        margin-top: 20px;
+    }
+}
