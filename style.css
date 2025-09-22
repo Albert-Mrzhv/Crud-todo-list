@@ -64,11 +64,40 @@ body {
     background-color: rgb(116, 116, 202);
 }
 
+.title-colors {
+    text-align: center;
+    color: white;
+}
+
+.block-remove-all {
+    display: flex;
+    justify-content: end;
+}
+
+.remove-all {
+    cursor: pointer;
+    height: 30px;
+    font-size: 20px;
+    background-color: rgb(87, 87, 168);
+    border: 2px solid blue;
+    border-radius: 12px;
+    color: white;
+    transition: all 0.3s;
+    margin-bottom: 10px;
+}
+
+.remove-all:hover {
+    background-color: rgb(95, 95, 185);
+}
+
+.remove-all:active {
+    background-color: rgb(116, 116, 202);
+}
 
 .block-colors {
     display: flex;
     justify-content: space-around;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .btn-color {
@@ -152,5 +181,11 @@ input[type="checkbox"] {
 @media (max-width: 446px) {
     .main {
         margin-top: 20px;
+    }
+    .title-colors {
+        font-size: 18px;
+    }
+    .remove-all {
+        font-size: 15px;
     }
 }

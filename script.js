@@ -1,6 +1,7 @@
 const inputText = document.querySelector('[data-input-text]');
 const createBtn = document.querySelector('[data-create-button]');
 const colorsBtn = document.querySelector('[data-colors]');
+const removeAll = document.querySelector('[data-remove-all]');
 const mainResult = document.querySelector('[data-main-block]');
 
 let textColor = null
@@ -23,7 +24,15 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+document.addEventListener('click', () => {
+    textColor = '';
+    if (currentBordered) {
+        currentBordered.style.border = '';
+    }
+})
+
 colorsBtn.addEventListener('click', (event) => {
+    event.stopPropagation();
     if (event.target.classList[1] === 'red') {
         textColor = 'red'
     } else if (event.target.classList[1] === 'blue') {
@@ -41,7 +50,23 @@ colorsBtn.addEventListener('click', (event) => {
     }
 })
 
-createBtn.addEventListener('click', () => {
+const buttonRemoveAll = document.createElement('input');
+buttonRemoveAll.type = 'button';
+buttonRemoveAll.value = 'Удалить всё';
+buttonRemoveAll.classList.add('remove-all');
+
+
+buttonRemoveAll.addEventListener('click', () => {
+    const askForRemove = confirm('Вы действительно хотите удалить всё?');
+    if (askForRemove) {
+        arrey.length = 0;
+        removeAll.textContent = '';
+        localStorage.setItem('todos', JSON.stringify(arrey));
+        render();
+    }
+})
+
+function mainCode() {
     if (inputText.value.trim()) {
         const obj = {
             text: inputText.value,
@@ -54,10 +79,28 @@ createBtn.addEventListener('click', () => {
         localStorage.setItem('todos', JSON.stringify(arrey));
         render();
         
+
     }
     inputText.value = ''
     textColor = ''
-    currentBordered.style.border = '';
+    if (currentBordered) {
+        currentBordered.style.border = '';
+    }
+}
+
+inputText.addEventListener('keypress', (event) => {
+    if (event.key === 'Enter') {
+        event.preventDefault();
+        mainCode();
+    }
+})
+
+inputText.addEventListener('click', (event) => {
+    event.stopPropagation();
+})
+
+createBtn.addEventListener('click', () => {
+    mainCode();
 })
 
 const render = () => {
@@ -99,12 +142,17 @@ const render = () => {
             arrey.splice(index, 1);
             localStorage.setItem('todos', JSON.stringify(arrey));
             render();
+            if (mainResult.textContent === '') {
+                removeAll.textContent = '';
+            }
         })
 
         blockCheckResult.append(checkboxInput, resText);
         blockRemove.append(blockCheckResult, removeBtn);
         mainResult.prepend(blockRemove);
+        removeAll.append(buttonRemoveAll);
     })
 }
+
 
 render();
