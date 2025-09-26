@@ -21,6 +21,7 @@ body {
     text-align: center;
     margin-bottom: 30px;
     color: #fff;
+    margin: 0 0 10px 0;
 }
 
 .form {
@@ -67,6 +68,25 @@ body {
 .title-colors {
     text-align: center;
     color: white;
+}
+
+.block-input-btn {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 10px;
+    margin-bottom: 20px;
+}
+
+.search-filter-block {
+    width: 100%;
+}
+
+.search-filter {
+    width: 100%;
+    height: 30px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
 }
 
 .block-remove-all {
@@ -138,7 +158,7 @@ body {
 .block-remove {
     display: flex;
     justify-content: space-between;
-    align-items: start;
+    align-items: center;
     background-color: bisque;
     padding: 0 10px;
     margin-bottom: 10px;
@@ -147,7 +167,6 @@ body {
 
 .block-checkbox-result {
     display: flex;
-    align-items: center;
     column-gap: 10px;
     margin-right: 10px;
 }
@@ -187,5 +206,8 @@ input[type="checkbox"] {
     }
     .remove-all {
         font-size: 15px;
+    }
+    .result {
+        font-size: 19px;
     }
 }
